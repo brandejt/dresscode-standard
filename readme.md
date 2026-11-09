@@ -1,7 +1,7 @@
 DressCode Standard
 ==================
 
-A coding standard for [DressCode](https://dresscode.run): a plugin with twenty rules of its own and two presets.
+A coding standard for [DressCode](https://dresscode.run): a plugin with rules of its own and presets.
 `brandejt/style` is [PER Coding Style](https://www.php-fig.org/per/coding-style/) with a stricter layout;
 `brandejt/rules` says what the code does, whatever it looks like. A project takes one or both.
 

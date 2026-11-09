@@ -1,6 +1,6 @@
 {
     "name": "brandejt/dresscode-standard",
-    "description": "Coding standard for DressCode: twenty rules and two presets, PER Coding Style with a stricter layout and the hygiene of the code",
+    "description": "Coding standard for DressCode: a plugin with rules of its own and presets, PER Coding Style with a stricter layout and the hygiene of the code",
     "type": "library",
     "keywords": ["dresscode", "coding standard", "code style", "php"],
     "license": "MIT",
