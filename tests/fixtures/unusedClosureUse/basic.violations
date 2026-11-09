@@ -1,0 +1,15 @@
+3: The closure captures `$a` but never uses it.
+6: The closure captures `$a` but never uses it.
+	risky BehaviorChanges: the reference creates `$a` in the scope around the closure
+9: The closure captures `$a` but never uses it.
+12: The closure captures `$b` but never uses it.
+15: The closure captures `$a` but never uses it.
+15: The closure captures `$b` but never uses it.
+	risky BehaviorChanges: the reference creates `$b` in the scope around the closure
+15: The closure captures `$c` but never uses it.
+17: The closure captures `$a` but never uses it.
+21: The closure captures `$a` but never uses it.
+35: The closure captures `$a` but never uses it.
+38: The closure captures `$a` but never uses it.
+39: The closure captures `$a` but never uses it.
+43: The closure captures `$a` but never uses it.

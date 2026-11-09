@@ -1,0 +1,4 @@
+4: The closure captures `$a` but never uses it.
+11: The closure captures `$a` but never uses it.
+16: The closure captures `$a` but never uses it.
+21: The closure captures `$a` but never uses it.

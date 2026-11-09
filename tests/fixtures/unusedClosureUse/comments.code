@@ -1,0 +1,20 @@
+<?php
+
+$inside = function () use (/* the only one */ $a) {
+    return 1;
+};
+$after = function () use ($a) /* kept */ {
+    return 1;
+};
+$between = function () use ($a /* unused */, $b) {
+    return $b;
+};
+$lineComments = function () use (
+    $a, // unused
+    $b, // used
+) {
+    return $b;
+};
+$beforeUse = function () /* before */ use ($a) {
+    return 1;
+};

@@ -1,0 +1,11 @@
+1: Expected a single space after the name.
+1: Expected a single space after the `=` operator.
+7: Expected no whitespace after the `declare` keyword.
+7: Expected a single space after the name.
+7: Expected a single space after the `=` operator.
+9: Expected no whitespace after the opening parenthesis.
+9: Expected a single space after the name.
+9: Expected a single space after the `=` operator.
+9: Expected no whitespace before the closing parenthesis.
+11: Expected a single space after the name.
+15: Expected a single space after the `=` operator.

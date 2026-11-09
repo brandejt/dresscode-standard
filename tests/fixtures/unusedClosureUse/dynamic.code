@@ -1,0 +1,14 @@
+<?php
+
+$definedVariables = function () use ($a, $b) {
+    return get_defined_vars();
+};
+$variableVariable = function (string $name) use ($a) {
+    return $$name;
+};
+$compacted = function (array $names) use ($a) {
+    return compact($names);
+};
+$evaluated = function (string $code) use ($a) {
+    eval($code);
+};

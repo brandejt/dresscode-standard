@@ -1,0 +1,123 @@
+<?php
+
+class Child extends Base
+{
+    public function __construct(int $a)
+    {
+        parent::__construct($a);
+
+        $this->a = $a;
+    }
+
+    public function between(): void
+    {
+        $this->before();
+
+        parent::between();
+
+        $this->after();
+    }
+
+    public function first(): int
+    {
+        parent::first(); // stays first
+
+        return 1;
+    }
+
+    public function last(): void
+    {
+        $x = 1;
+
+        PARENT::last();
+    }
+
+    public function only(): void
+    {
+        parent::only();
+    }
+
+    public function prefixed(): void
+    {
+        $x = 1;
+
+        (string) parent::cast();
+
+        @parent::silenced();
+
+        $y = 2;
+    }
+
+    public function notStatements(): int
+    {
+        $x = 1;
+        $y = parent::value();
+        $z = 2;
+        parent::a() || parent::b();
+        $w = [parent::c()];
+        return parent::other();
+    }
+
+    public function withComment(): void
+    {
+        $x = 1;
+
+        // explains the call
+        parent::commented();
+
+        /* after */ $y = 2;
+    }
+
+    public function tooMany(): void
+    {
+        $x = 1;
+
+        parent::tooMany();
+
+        $y = 2;
+    }
+
+    public function nested(): void
+    {
+        $f = function () {
+            $x = 1;
+
+            parent::inClosure();
+
+            $y = 2;
+        };
+        if ($f) {
+            parent::inBlock();
+        }
+        switch ($f) {
+            case 1:
+                parent::inCase();
+
+                break;
+            default:
+                $x = 1;
+
+                parent::lastInCase();
+        }
+    }
+
+    public function multiLine(): void
+    {
+        $x = "a $x";
+
+        parent::multiLine(
+            $x,
+            "interpolated {$x}",
+        );
+
+        $y = 2;
+    }
+
+    public function other(): void
+    {
+        $x = 1;
+        self::notParent();
+        static::notParent();
+        $y = 2;
+    }
+}

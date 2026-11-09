@@ -1,0 +1,237 @@
+# Brandejt style: PER Coding Style with a stricter layout
+#
+# How the code looks: PER Coding Style with the braces of a multiline signature on a line of their own, empty bodies
+# expanded, `declare(strict_types = 1)`, no padding and no alignment, imports grouped and sorted, one order of the
+# members of a class, and the layout the rules of the plugin decide. Nothing about what the code does; that is
+# `brandejt/rules`.
+
+use: perCs
+
+brandejt:
+    attributesJoining: forbidden
+    attributesOrder: alphabetical
+    blankLinesAroundParentCall: 1
+    catchExceptionsOrder: alphabetical
+    declareSpacing: 'declare(strict_types = 1)'
+    inlineVarDeclaration: required
+    phpdocAnnotationsApart: required
+    selfReference: self
+    throwsAnnotationsOrder: alphabetical
+    trailingCommaInCall: forbidden
+
+file:
+    strictTypes:
+        position: sameLine
+    longLines: forbidden
+    lineLengthExcept: [imports, '~https?://~']
+
+spacing:
+    # `brandejt.declareSpacing` keeps `declare(strict_types = 1)`, which the decision has no value for
+    declare: keep
+    arrowFunction: 'fn ($x) => $x'
+    catchType: 'catch (A | B $e)'
+    logicalNot: '!$x'
+    doubleColon: 'Foo::bar()'
+    objectOperator: '$a->b()'
+    semicolon:
+        after: 'for ($i = 0; $i < 5; $i++)'
+    comment:
+        marker: '// text'
+        afterCode: '$a; // text'
+    padding:
+        array: forbidden
+        list: forbidden
+        offset: forbidden
+    alignment:
+        binaryOperator: forbidden
+        ternary: forbidden
+        comment: forbidden
+
+braces:
+    position:
+        multilineSignature: nextLine
+        typedMultilineSignature: nextLine
+    emptyBody:
+        class: expanded
+        function: expanded
+        closure: expanded
+        propertyHook: expanded
+        anonymousClass: expanded
+        controlStructure: expanded
+    alternativeSyntax: forbidden
+    bareStatementGroup: forbidden
+
+indentation:
+    binaryOperator: 0
+    ternary: 1
+    singleLevel: required
+    singleLevelInComments: true
+
+multiline:
+    items:
+        # a chain stays as it is written, spread or on one line
+        chain: keep
+        matchArm: perLine
+        coalesce: perLine
+        closureUse: perLine
+        attribute: perLine
+        import: perLine
+        pipe: perLine
+    edges:
+        closureUse: apart
+        condition: apart
+        attribute: closingApart
+    operatorPosition:
+        concatenation: lineStart
+    expressionStart:
+        return: sameLine
+        throw: sameLine
+        yield: sameLine
+        echo: sameLine
+        arrowFunction: sameLine
+        assignment: sameLine
+        arrayItem: sameLine
+    semicolon: sameLine
+    trailingComma:
+        # `required` would add the comma that `brandejt.trailingCommaInCall` forbids
+        argument: keep
+        import: required
+        list: required
+
+blankLines:
+    aroundMethods: 1
+    aroundInterfaceMethods: 1
+    aroundDeclarations: 1
+    betweenStatementsInFunction: 0-1
+    betweenMemberKinds: 1
+    betweenMembers:
+        constant: 0-1
+        property: 1
+        enumCase: 0
+    beforeDocumentedMember: 1
+    bodyStart:
+        function: 0
+        closure: 0
+        propertyHook: 0
+        switchCase: 0
+    bodyEnd:
+        propertyHook: 0
+        switchCase: 1
+    belowComment:
+        inlineVar: 0
+    beforeStatement:
+        if: 1
+        do: 1
+        while: 1
+        for: 1
+        foreach: 1
+        switch: 1
+        try: 1
+        return: 1
+        continue: 1
+        yield: 1
+    afterStatement:
+        if: 1
+        do: 1
+        while: 1
+        for: 1
+        foreach: 1
+        switch: 1
+        try: 1
+
+casing:
+    class: declared
+    function: declared
+    method: declared
+    magicConstant: uppercase
+    hexDigit: uppercase
+
+naming:
+    function: camelCase
+    constant: UPPER_CASE
+    property: camelCase
+    variable: camelCase
+    interfaceAffix: forbidden
+    exceptionAffix: required
+    traitAffix: required
+    errorAffix: forbidden
+
+classes:
+    members:
+        order:
+            - traitUse
+            - enumCase
+            - publicConstant
+            - protectedConstant
+            - privateConstant
+            - publicStaticProperty
+            - protectedStaticProperty
+            - privateStaticProperty
+            - publicProperty
+            - protectedProperty
+            - privateProperty
+            - constructor
+            - destructor
+            - magicMethod
+            - publicStaticMethod
+            - protectedStaticMethod
+            - privateStaticMethod
+            - publicMethod
+            - protectedMethod
+            - privateMethod
+
+qualification:
+    currentClass: self
+    staticInFinalClass: required
+    leadingBackslash: forbidden
+    class:
+        global: imported
+        otherNamespace: imported
+        currentNamespace: bare
+        phpdoc: imported
+    function:
+        global: bare
+        optimized: bare
+        otherNamespace: imported
+        currentNamespace: bare
+    constant:
+        global: bare
+        optimized: bare
+        otherNamespace: imported
+        currentNamespace: bare
+
+imports:
+    order:
+        names: alphabetical
+    grouping:
+        class: separated
+        function: separated
+        constant: separated
+
+types:
+    unionOrder: alphabetical
+
+expressions:
+    comparison:
+        notEquals: '!='
+        yoda: forbidden
+    assignment:
+        increment: postfix
+    explicitPrecedence: required
+
+literals:
+    quotes: single
+
+comments:
+    singleline: '//'
+
+phpdoc:
+    stars: aligned
+    blankLines: trimmed
+    property:
+        lineSpan: expanded
+        promoted: '@var'
+    types:
+        nullable: 'T|null'
+        nullPosition: last
+        unionOrder: alphabetical

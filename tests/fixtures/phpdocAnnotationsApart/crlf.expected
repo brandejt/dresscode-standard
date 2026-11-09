@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Sums the numbers.
+ *
+ * @param list<int> $numbers
+ * @return int
+ */
+function sum(array $numbers): int
+{
+}

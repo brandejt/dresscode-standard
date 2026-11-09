@@ -1,0 +1,163 @@
+<?php
+
+function plain(): int
+{
+    $result = compute();
+
+    return $result;
+}
+
+function afterStatement(int $a): int
+{
+    $a++;
+    $result = compute($a);
+    return $result;
+}
+
+function amongBlankLines(int $a): int
+{
+    $a++;
+
+    $result = compute($a);
+
+    return $result;
+}
+
+function multiline(): array
+{
+    $result = [
+        'a' => 1,
+        'b' => 2,
+    ];
+
+    return $result;
+}
+
+function valueOnNextLine(): int
+{
+    $result =
+        compute();
+
+    return $result;
+}
+
+function lowPrecedence(bool $a, bool $b): bool
+{
+    $result = $a and $b;
+
+    return $result;
+}
+
+function ternary(bool $flag): string
+{
+    $value = $flag ? 'yes' : 'no';
+
+    return $value;
+}
+
+function chained(): int
+{
+    $first = compute();
+    $second = $first;
+
+    return $second;
+}
+
+function inBranch(bool $flag): int
+{
+    if ($flag) {
+        $result = 1;
+
+        return $result;
+    }
+
+    return 0;
+}
+
+function inClosure(): Closure
+{
+    return static function () {
+        $result = compute();
+
+        return $result;
+    };
+}
+
+function readAgain(): int
+{
+    $result = 1;
+    $result = $result + 1;
+
+    return $result;
+}
+
+function readByArrow(): Closure
+{
+    $reader = static fn () => $result;
+    $result = compute();
+
+    return $result;
+}
+
+function combined(): string
+{
+    $result = 'a';
+    $result .= 'b';
+
+    return $result;
+}
+
+function parameter(int $value): int
+{
+    $value = compute();
+
+    return $value;
+}
+
+function staticVariable(): int
+{
+    static $count;
+    $count = compute();
+
+    return $count;
+}
+
+function &byReference(): array
+{
+    $result = [];
+
+    return $result;
+}
+
+function annotated(Container $container): Foo
+{
+    /** @var Foo $result */
+    $result = $container->get('foo');
+
+    return $result;
+}
+
+function dynamic(array $values): int
+{
+    extract($values);
+    $result = compute();
+
+    return $result;
+}
+
+function unbraced(bool $flag): int
+{
+    if ($flag)
+        $result = 1;
+    return $result;
+}
+
+function oneLine(): int { $result = compute(); return $result; }
+
+function blankLineAtStart(): int
+{
+
+    $result = compute();
+
+    return $result;
+}

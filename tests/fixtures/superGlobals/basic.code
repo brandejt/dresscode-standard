@@ -1,0 +1,11 @@
+<?php
+
+$id = (int) $_GET['id'];
+$name = $_POST['name'] ?? $_REQUEST['name'] /* fallback */ ?? $_COOKIE['name'];
+echo "Host: $_SERVER[HTTP_HOST] and {$_FILES['upload']['name']} and ${_ENV}";
+$GLOBALS['user'] = $_SESSION['user'];
+$this->_GET = $_get;
+$object->$_GET;
+$callback = static function () use ($name) {
+    return fn () => $_SERVER['REQUEST_URI'] . $name;
+};

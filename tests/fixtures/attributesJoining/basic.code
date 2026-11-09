@@ -1,0 +1,27 @@
+<?php
+
+#[Attribute, Foo(1), /* inner */ Bar]
+#[Baz]
+class Example
+{
+    #[A, B] public const X = 1;
+
+    #[
+        First,
+        Second(name: 'x'), // trailing comma
+    ]
+    private int $property;
+
+    #[Single]
+    public function method(#[Param1, Param2] int $a, #[Only] int $b): void
+    {
+        $f = #[Closure1, Closure2] static fn () => 1;
+        $g = #[Closure3] function () {
+        };
+    }
+}
+
+enum Suit
+{
+    #[Case1, Case2] case Hearts;
+}

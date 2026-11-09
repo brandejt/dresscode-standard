@@ -1,0 +1,63 @@
+<?php
+
+class Foo
+{
+    public const A = 1;
+
+    public function bar(): int
+    {
+        $x = static::A + static::/* inner */B + STATIC::A;
+        $y = static::class . static::CLASS . static::$property . static::create() . $foo::A . self::A . parent::A;
+        $closure = static fn () => static::A;
+        $s = "item {$this->items[static::A]} here";
+        return $x + static::{$name};
+    }
+}
+
+abstract class Bar
+{
+    public const A = 1;
+
+    public function baz(): int
+    {
+        return static::A;
+    }
+}
+
+trait Qux
+{
+    public function quux(): int
+    {
+        return static::A;
+    }
+}
+
+final class Sealed
+{
+    public const A = 1;
+
+    public function get(): int
+    {
+        return static::A;
+    }
+}
+
+enum Status: int
+{
+    case Active = 1;
+    public const DEFAULT = self::Active;
+
+    public static function default(): self
+    {
+        return static::DEFAULT;
+    }
+}
+
+$anonymous = new class {
+    public const A = 1;
+
+    public function get(): int
+    {
+        return static::A;
+    }
+};

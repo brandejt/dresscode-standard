@@ -1,0 +1,115 @@
+<?php
+
+function written(): void
+{
+    $plain = foo();
+    $chained = $read = bar();
+    echo $read;
+    [$first, [$nested]] = baz();
+    echo $nested;
+    list('key' => $keyed, $second) = baz();
+    echo $second;
+    foreach (baz() as $key => $value) {
+        echo $value;
+    }
+
+    foreach (baz() as [$left, $right]) {
+        echo $right;
+    }
+
+    $twice = 1;
+    $twice /* comment */ = 2; // assigned again, read never
+    if ($inCondition = qux()) {
+        return;
+    }
+
+    $arrowWrite = 0;
+    $arrow = static fn () => $arrowWrite = 1;
+    $arrow();
+    $counter = 0;
+    $counter++;
+    --$counter;
+    $text = '';
+    $text .= 'a';
+    $cached ??= qux();
+}
+
+class Reads
+{
+    private array $items = [];
+
+    public function read(array $parameter, int &$reference): array
+    {
+        $concatenated = 'a';
+        $concatenated .= 'b';
+        $stepped = 0;
+        $stepped++;
+        $counted = 0;
+        $elements = [];
+        $elements[] = 1;
+        $keyed = [];
+        $keyed['key'][] = 1;
+        $object = new stdClass();
+        $object->property = 1;
+        $passed = null;
+        preg_match('~x~', 'x', $passed);
+        $checked = 1;
+        $unset = 1;
+        unset($unset);
+        $interpolated = 'a';
+        $braced = ['b'];
+        $heredoc = 'c';
+        $string = "$interpolated {$braced[0]}" . <<<EOT
+            $heredoc
+            EOT;
+        $captured = 1;
+        $byReference = 1;
+        $closure = static function () use ($captured, &$byReference) {
+            return $captured;
+        };
+        $arrowRead = 1;
+        $arrow = static fn ($own) => $own + $arrowRead;
+        $compacted = 1;
+        $caught = null;
+        try {
+            $this->items = [];
+        } catch (Exception $caught) {
+        }
+
+        $parameter = [];
+        $reference = 1;
+        static $static = 1;
+        global $global;
+        $global = $static = 2;
+        foreach ($this->items as &$bound) {
+        }
+
+        $bound = null;
+        $reassigned = 1;
+        $reassigned = $reassigned + 1;
+
+        return compact('compacted') + [
+            isset($checked),
+            $string,
+            $closure,
+            $arrow,
+            $object,
+            $passed,
+            $keyed,
+            $elements,
+            $stepped,
+            ++$counted,
+            $concatenated,
+            $reassigned,
+        ];
+    }
+}
+
+$closure = function () use ($outer) {
+    $inner = 1; // only the closure has it
+    $outer = 2;
+    $shadowed = 3;
+
+    return static fn ($shadowed) => $shadowed;
+};
+$closure();

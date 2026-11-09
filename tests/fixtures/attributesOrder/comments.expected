@@ -1,0 +1,21 @@
+<?php
+
+#[Zeta] // about zeta
+#[Alpha]
+class WithTrailingComment
+{
+}
+
+#[Zeta]
+// about alpha
+#[Alpha]
+class WithLeadingComment
+{
+}
+
+// about the class
+#[Alpha]
+#[Zeta]
+class WithCommentAboveFirst
+{
+}

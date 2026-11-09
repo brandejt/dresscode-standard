@@ -1,0 +1,44 @@
+<?php
+
+#[Zeta]
+#[Alpha(1, 2)]
+#[Beta /* inner */]
+final class Example
+{
+    #[Second] #[First] public const X = 1;
+
+    #[Route('/b')]
+    #[Route('/a')]
+    private int $repeatable;
+
+    /**
+     * The doc comment stays above.
+     */
+    #[Override]
+    #[Deprecated('x')]
+    public function method(#[Zz] #[Aa] int $a, #[SensitiveParameter] #[Named] int $b): void
+    {
+        $f = #[Two] #[One] static fn () => 1;
+        $g = new #[Second] #[First] class {
+        };
+    }
+
+    #[Item10]
+    #[Item9]
+    #[Item1]
+    public function natural(): void
+    {
+    }
+
+    #[\Attribute\Sorted]
+    #[Attribute]
+    public function qualified(): void
+    {
+    }
+}
+
+enum Suit
+{
+    #[B] #[A]
+    case Hearts;
+}

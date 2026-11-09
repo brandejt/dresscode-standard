@@ -1,0 +1,79 @@
+<?php declare(strict_types = 1);
+
+namespace App;
+
+use Other\Foo as Bar;
+
+class Foo
+{
+    public const ?self NONE = null;
+
+    public ?self $parent = null;
+
+    public function __construct(?self $parent, self|int $id)
+    {
+    }
+
+    public static function create(Bar $bar): self|null
+    {
+        return new Foo(null, 1);
+    }
+
+    public function createMapper(): \Closure
+    {
+        return static fn (self $foo): self => $foo;
+    }
+
+    public function wrap(): object
+    {
+        return new class {
+            public function unwrap(Foo $foo): Foo
+            {
+                return $foo;
+            }
+        };
+    }
+}
+
+final class Baz
+{
+    public function accept(Foo $foo): self
+    {
+        return $this;
+    }
+}
+
+interface Node
+{
+    public const int DEPTH = 1;
+
+    public const int MAX_DEPTH = self::DEPTH + 1;
+
+    public function getParent(): ?self;
+}
+
+enum Status: string
+{
+    case Active = 'active';
+    case Closed = 'closed';
+
+    public const self DEFAULT = self::Active;
+
+    public static function fromFlag(bool $active): self
+    {
+        return $active ? self::Active : self::Closed;
+    }
+
+    public function isClosed(): bool
+    {
+        return $this === self::Closed;
+    }
+}
+
+trait Comparable
+{
+    public function equals(Comparable $other): bool
+    {
+        return $this === $other;
+    }
+}

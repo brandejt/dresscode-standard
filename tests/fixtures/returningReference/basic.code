@@ -1,0 +1,30 @@
+<?php declare(strict_types = 1);
+
+function &find(array &$items): array
+{
+    return $items;
+}
+
+final class Registry
+{
+    private array $items = [];
+
+    public array $first {
+        &get => $this->items;
+    }
+
+    public function &get(): array
+    {
+        return $this->items;
+    }
+
+    public function walk(array &$items): void
+    {
+        $byReference = static function &() use (&$items): array {
+            return $items;
+        };
+        $arrow = static fn &(array &$list): array => $list;
+        $copy = &$items;
+        $plain = static fn (array $list): array => $list;
+    }
+}

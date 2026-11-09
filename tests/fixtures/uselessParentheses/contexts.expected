@@ -1,0 +1,38 @@
+<?php
+
+$a = ( /* why */ $b);
+$a = ($b /* why */);
+$a = (
+    $b // why
+);
+$a = $b->c()
+        ->d();
+$a = [
+    // the comment above stays
+    $b => 1,
+];
+$a = $b // the comment after stays
+    . 'x';
+$a = $b;
+$a = $b + 1;
+$a = $b and $c;
+$a = $b instanceof $c;
+$a = "x {$b[$c]} y";
+$a = <<<EOT
+    {$b[$c]}
+    EOT;
+$f = static fn ($x) => $x;
+$f = function ($x = FOO) use ($b) {
+    return ($x->y(static fn () => $b, array_map(static fn ($v) => $v * 2, $b)));
+};
+$a = [
+    'key' => $b,
+    $c => 1,
+];
+$a = match ($b) {
+    $c => $d,
+    default => new Foo(),
+};
+foreach ($a as $b) {
+}
+throw $e;

@@ -1,0 +1,49 @@
+<?php
+
+/**
+   Starless description.
+   @return int
+ */
+function starless(): int
+{
+}
+
+/** @param int $a
+ *
+ * @return int
+ */
+function onOpeningLine(int $a): int
+{
+}
+
+/**
+ * @param int $a
+ *
+ * @return int */
+function onClosingLine(int $a): int
+{
+}
+
+final class Tabs
+{
+	/**
+	 * See {@link Foo} for the details.
+	 *
+	 *
+	 *
+	 * @throws \RuntimeException
+	 *
+	 * @deprecated
+	 */
+	public function run(): void
+	{
+		/**
+		 * The configuration
+		 * @var array{a: int} $config
+		 */
+		$config = ['a' => 1]; /**
+		 * Trailing one.
+		 * @var int
+		 */
+	}
+}

@@ -1,0 +1,12 @@
+<?php
+
+declare(strict_types=1);
+
+$handler = static function (array $configuration): array {
+    $merged = $configuration + ['cache' => false];
+
+    return $merged;
+};
+$configuration = $handler(['debug' => true]); // the file including this one sees it
+
+return $configuration;

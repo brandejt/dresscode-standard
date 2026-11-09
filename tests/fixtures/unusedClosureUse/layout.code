@@ -1,0 +1,21 @@
+<?php
+
+$ownLine = function ()
+    use ($a)
+{
+    return 1;
+};
+$returnType = function (
+    int $x,
+) use (
+    $a,
+): int {
+    return $x;
+};
+$braceBelow = function () use (
+    $a
+)
+{
+    return 1;
+};
+$attributed = #[Pure] static function () use ($a): ?int { return null; };

@@ -1,0 +1,31 @@
+<?php
+
+class Foo
+{
+    public function __construct(
+        private int $a, // promoted
+        public readonly string $b,
+        #[SensitiveParameter]
+        protected ?array $c = null,
+        int $d, /* a plain parameter */
+        private(set) int $e = 0,
+        string ...$rest,
+    ) {
+    }
+
+    public function bar(private int $notPromoted): void
+    {
+        $object = new class(1) {
+            public function __CONSTRUCT(readonly int $f) {}
+        };
+    }
+}
+
+trait Baz
+{
+    public function __construct(protected readonly int $g = 1, string $h = '') {}
+}
+
+function __construct(private int $notAMethod): void
+{
+}

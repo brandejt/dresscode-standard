@@ -1,0 +1,23 @@
+<?php
+// {"blankLinesAroundParentCall": "1-2"}
+
+class Child extends Base
+{
+    protected function setUp(): void
+    {
+        $this->a = 1;
+
+
+        parent::setUp();
+
+
+
+        $this->b = 2;
+        parent::assert();
+        $this->c = 3;
+
+        parent::kept();
+
+        $this->d = 4;
+    }
+}

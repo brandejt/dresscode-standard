@@ -1,0 +1,43 @@
+<?php declare(strict_types = 1);
+
+/** @var Container $container */
+$container = require __DIR__ . '/bootstrap.php';
+
+function load(Repository $repository, array $rows): array
+{
+    /** @var list<Order> $orders */
+    $orders = $repository->findAll();
+
+    /** @var Order|null $order */
+    $order ??= $repository->find(1);
+
+    /** @var array<int, Order> $byId */
+    $byId = &$orders;
+
+    /**
+     * @var int $id
+     * @var Order $first
+     */
+    [$id, $first] = $rows;
+
+    /** @var Order $item */
+    foreach ($orders as $key => $item) {
+        $item->close();
+    }
+
+    foreach ($rows as ['id' => $id, 'order' => $row]) {
+        /** @var Order $row */
+        $row->close();
+    }
+
+    /** @var array{id: int} $row */
+    while ($row = array_shift($rows)) {
+        $id = $row['id'];
+    }
+
+    /** @var Cache $cache */
+    static $cache;
+
+    /** @var Order $order */
+    return array_map(static fn ($order) => $order->getId(), $orders);
+}

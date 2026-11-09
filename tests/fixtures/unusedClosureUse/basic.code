@@ -1,0 +1,48 @@
+<?php
+
+$single = function () use ($a) {
+    return 1;
+};
+$byReference = static function () use (&$a): int {
+    return 1;
+};
+$first = function () use ($a, $b) {
+    return $b;
+};
+$last = function () use ($a, $b) {
+    return $a;
+};
+$all = function () use ($a, &$b, $c) {
+};
+$oneLine = function () use ($a, $b) { return $b; };
+$multiline = function (
+    int $x,
+) use (
+    $a,
+    $b,
+): int {
+    return $x + $b;
+};
+$used = static function () use ($a, $b, &$c, $d, $e) {
+    $closure = function () use ($a) {
+        return $a;
+    };
+    $arrow = static fn () => $b;
+    $c = 5;
+
+    return compact('d') + [$closure, $arrow, "{$e}"];
+};
+$shadowed = function () use ($a) {
+    return static fn ($a) => $a;
+};
+$nested = function () use ($a) {
+    return function () use ($a) {
+        return 1;
+    };
+};
+$innerFunction = function () use ($a) {
+    function inner($a)
+    {
+        return $a;
+    }
+};

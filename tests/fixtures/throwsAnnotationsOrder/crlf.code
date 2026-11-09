@@ -1,0 +1,15 @@
+<?php
+
+final class Mailer
+{
+	/**
+	 * Sends the message.
+	 *
+	 * @throws TransportException when the server refuses it,
+	 *   with the reply of the server
+	 * @throws \InvalidArgumentException
+	 */
+	public function send(): void
+	{
+	}
+}

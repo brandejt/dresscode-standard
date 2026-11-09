@@ -1,0 +1,9 @@
+5: The inline annotation `@var Order` must be written `@var Type $variable`.
+8: The inline annotation `@var $order Order` must be written `@var Order $order`.
+11: The inline annotation `@var $orders array<int, Order>` must be written `@var Type $variable`.
+17: The inline `@var` of `$order` must stand above the statement assigning it.
+18: The inline annotation `@var $copy Order` must be written `@var Order $copy`.
+22: The inline `@var` of `$order` must stand above the statement assigning it.
+25: The inline `@var` of `$other` must stand above the statement assigning it.
+28: The inline `@var` of `$order` must stand above the statement assigning it.
+33: The inline `@var` of `$order` must stand above the statement assigning it.

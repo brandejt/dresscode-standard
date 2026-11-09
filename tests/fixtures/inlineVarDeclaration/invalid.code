@@ -1,0 +1,35 @@
+<?php declare(strict_types = 1);
+
+function load(Repository $repository, array $orders): void
+{
+    /** @var Order */
+    $order = $repository->find(1);
+
+    /** @var $order Order */
+    $order = $repository->find(2);
+
+    /** @var $orders array<int, Order> */
+    $orders = $repository->findAll();
+
+    /**
+     * The order loaded last.
+     *
+     * @var Order $order
+     * @var $copy Order
+     */
+    $copy = clone $order;
+
+    /** @var Order $order */
+    $repository->save($orders);
+
+    /** @var Order $other */
+    $order = $repository->find(3);
+
+    /** @var Order $order */
+    if ($order = $repository->find(4)) {
+        $repository->save($order);
+    }
+
+    /** @var Order $order */
+    return;
+}

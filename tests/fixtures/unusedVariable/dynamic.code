@@ -1,0 +1,78 @@
+<?php
+
+function variableVariable(string $name): void
+{
+    $kept = 1;
+    echo $$name;
+}
+
+function braced(string $name): void
+{
+    $kept = 1;
+    echo ${'prefix' . $name};
+}
+
+function extracted(array $values): void
+{
+    $kept = 1;
+    extract($values);
+}
+
+function definedVariables(): array
+{
+    $kept = 1;
+
+    return get_defined_vars();
+}
+
+function evaluated(string $code): void
+{
+    $kept = 1;
+    eval($code);
+}
+
+function included(): void
+{
+    $kept = 1;
+    include __DIR__ . '/template.php';
+}
+
+function compactedByExpression(string $name): array
+{
+    $kept = 1;
+
+    return compact($name);
+}
+
+function compactedByLiterals(): array
+{
+    $one = 1;
+    $two = 2;
+    $three = 3;
+
+    return compact('one', ['two', ['three']]);
+}
+
+function namespacedCompact(): array
+{
+    $reported = 1;
+
+    return \Acme\compact('reported');
+}
+
+function nested(string $name): void
+{
+    $reported = 1;
+    $closure = static function () use ($name) {
+        return $$name;
+    };
+    $closure();
+}
+
+function staticFromVariable(int $seed): int
+{
+    static $cache = $seed;
+    $reported = $cache;
+
+    return $cache;
+}

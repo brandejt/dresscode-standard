@@ -1,0 +1,64 @@
+<?php
+
+function implicit(array $parameter, ?array &$reference): array
+{
+    $list[] = 1;
+    $list[] = 2;
+    $map['key']
+        ['nested'] = 1;
+    $interpolated["{$parameter[0]}"] = 1;
+    $commented /* not created */ [] = 1;
+    $later[] = 1;
+    $later = [];
+    $parameter[] = 1;
+    $reference['key'] = 1;
+    $created = [];
+    $created[] = 1;
+    $nullCreated = null;
+    $nullCreated['key'] = 1;
+    preg_match('~(x)~', 'x', $matches);
+    $matches[] = 'y';
+    sort($sorted['key']);
+    $sorted['other'] = 1;
+    [$destructured, [$nested]] = [[], [[]]];
+    $destructured[] = 1;
+    $nested[] = 1;
+    foreach ([[1]] as $key => $value) {
+        $value[] = $key;
+    }
+
+    $alias = &$referenced;
+    $referenced[] = 1;
+    $alias[] = 1;
+    $merged ??= [];
+    $merged[] = 1;
+    static $static;
+    $static[] = 1;
+    global $global;
+    $global[] = 1;
+    $object = new stdClass();
+    $object->items[] = 1;
+    $closure = static function () use ($list, &$captured) {
+        $list[] = 3;
+        $fresh[] = 1;
+        $nestedArrow = static fn () => $fromArrow[] = 1;
+
+        return $nestedArrow;
+    };
+    $captured[] = 1;
+    $arrow = static fn () => $arrowCreated = [];
+    $arrowCreated[] = 1;
+    $mapper = static fn (array $row) => $row['mapped'] = 1;
+    $counts['a'] ??= 0;
+    $references[] = &$created;
+
+    return [$list, $map, $later, $closure, $arrow, $mapper];
+}
+
+function dynamic(array $values): array
+{
+    extract($values);
+    $items[] = 1;
+
+    return $items;
+}

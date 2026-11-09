@@ -1,0 +1,20 @@
+<?php
+// risky
+
+abstract class Bar
+{
+    public const A = 1;
+
+    public function baz(): string
+    {
+        return static::A . static::class;
+    }
+}
+
+trait Qux
+{
+    public function quux(): int
+    {
+        return static::A;
+    }
+}

@@ -1,0 +1,94 @@
+<?php
+
+/**
+ * Loads the order.
+ *
+ * @param int $id
+ * @return Order
+ * @throws NotFoundException
+ * @throws \InvalidArgumentException
+ */
+function load(int $id): Order
+{
+}
+
+/**
+ * @throws ZeroException if the divisor is zero,
+ *     which the caller has to check
+ * @return float
+ * @throws ArithmeticError|\DivisionByZeroError
+ */
+function divide(int $a, int $b): float
+{
+}
+
+/**
+ * @throws
+ * @throws C
+ * @throws B
+ */
+function invalid(): void
+{
+}
+
+/** @throws B
+ * @throws A */
+function sharingLines(): void
+{
+}
+
+interface Storage
+{
+    /**
+     * @throws \RuntimeException when the connection fails
+     *     and the retry gives up
+     *
+     * @throws \LogicException
+     */
+    public function save(): void;
+}
+
+class Repository
+{
+    /**
+     * @throws Alpha
+     * @throws beta
+     */
+    public function sorted(): void
+    {
+        array_map(
+            /**
+             * @throws ZException
+             * @throws aException
+             */
+            function (int $item) {
+                return /** @throws B */ fn () => throw new B("item $item");
+            },
+            []
+        );
+    }
+
+    /**
+     * @throws Second
+     * @throws First
+     */
+    // dresscode keeps this comment
+    #[Pure]
+    public function withAttribute(): void
+    {
+        $handlers = [
+            /**
+             * @throws Ŝtrange
+             * @throws Normal
+             */
+            static fn () => null,
+        ];
+    }
+
+    /**
+     * @throws OnlyOne
+     */
+    public function single(): void
+    {
+    }
+}

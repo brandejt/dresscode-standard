@@ -1,0 +1,98 @@
+<?php
+
+// an assignment, a cast, `~`, `new`, `include`, `clone`, `yield`, `require`, and parentheses called
+if (($a = foo()) !== null) {
+}
+while (($line = fgets($f)) !== false) {
+}
+$a = (int) ($b);
+$a = (string) ($b . 'x');
+$a = ~($b);
+$a = new ($b);
+include ($file);
+$a = (clone $b)->c;
+$a = (clone $b);
+$f = function () {
+    $a = (yield $b);
+};
+$a = ((array) $b)['x'];
+$a = (require 'x.php');
+$a = ($b)($c);
+$a = (function () {
+})();
+$a = ($b->c)();
+
+// a ternary condition holding a logical operation or a ternary, or standing after a logical operator
+$a = ($b && $c) ? 1 : 2;
+$a = ($b || $c) ? 1 : 2;
+$a = ($b ? 1 : 2) ? 3 : 4;
+$a = (foo($b and $c)) ? 1 : 2;
+$a = $b && ($c) ? 1 : 2;
+$a = $b and ($c) ? 1 : 2;
+$a = $b . ($c) ? 1 : 2;
+
+// a chain after a logical operator or `case`, before `?` or `>>`, holding arithmetic, or one the place needs
+$a = $b && ($c);
+$a = $b || (!$c);
+$a = ($b) >> 2;
+$a = (foo($b + 1));
+$a = (foo(-1));
+$a = !(!$b);
+$a = (FOO)::bar();
+$a = (!$b)->c;
+switch ($a) {
+    case ($b) + 1:
+        break;
+}
+
+// no chain, string or arithmetic
+$a = (true);
+$a = (1);
+$a = (isset($b));
+$a = (__DIR__);
+$a = ("a $b");
+$a = ([1, 2]);
+$a = ($b instanceof Foo);
+
+// a string reached into
+$a = ('abc')[0];
+
+// arithmetic next to `!`, `-` or a logical operator, between operators of other groups, or changing the order
+$a = !($b + 1);
+$a = -($b + 1);
+$a = $b && ($c + 1);
+$a = ($b + 1) || $c;
+$a = 5 - ($b + 1);
+$a = 5 - ($b - 1);
+$a = $b / ($c * 2);
+$a = $b / ($c / 2);
+$a = $b % ($c % 2);
+$a = $b * ($c * 2);
+$a = $b + ($c + 1);
+$a = $b . ($c . 'x');
+$a = $b . ($c + 1);
+$a = ($b + 1) . $c;
+$a = ($b * 2) + 1;
+$a = ($b ** 2) ** 3;
+foo(($b + $c - 1));
+$a = ($b . $c << 1);
+$a = ($b + 1)->c;
+$a = ($b + $c)[0];
+
+// an instantiation not followed by `,`, `;` or `]`
+foo((new Foo()));
+$a = (new Foo())->bar;
+$a = (new Foo())::BAR;
+$a = (new Foo()) . 'x';
+
+// the operand of `return`, `echo`, `case` and their kin, left to `expressions.parenthesesAfterConstruct` of the core
+switch ($a) {
+    case (1):
+        break;
+    case ($b + 1):
+        break;
+}
+echo ("x");
+print($a);
+
+return ($a);

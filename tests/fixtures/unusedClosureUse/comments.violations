@@ -1,0 +1,5 @@
+3: The closure captures `$a` but never uses it.
+6: The closure captures `$a` but never uses it.
+9: The closure captures `$a` but never uses it.
+13: The closure captures `$a` but never uses it.
+18: The closure captures `$a` but never uses it.

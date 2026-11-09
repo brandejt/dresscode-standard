@@ -1,0 +1,12 @@
+5: The variable `$result` is assigned only to be returned.
+13: The variable `$result` is assigned only to be returned.
+21: The variable `$result` is assigned only to be returned.
+28: The variable `$result` is assigned only to be returned.
+38: The variable `$result` is assigned only to be returned.
+53: The variable `$value` is assigned only to be returned.
+60: The variable `$first` is assigned only to be returned.
+61: The variable `$second` is assigned only to be returned.
+69: The variable `$result` is assigned only to be returned.
+80: The variable `$result` is assigned only to be returned.
+155: The variable `$result` is assigned only to be returned.
+160: The variable `$result` is assigned only to be returned.

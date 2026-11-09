@@ -1,0 +1,16 @@
+<?php
+
+$ownLine = function ()
+{
+    return 1;
+};
+$returnType = function (
+    int $x,
+): int {
+    return $x;
+};
+$braceBelow = function ()
+{
+    return 1;
+};
+$attributed = #[Pure] static function (): ?int { return null; };

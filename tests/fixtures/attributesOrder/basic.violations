@@ -1,0 +1,10 @@
+3: The attribute groups must be in alphabetical order: `Alpha`, `Beta`, `Zeta`.
+8: The attribute groups must be in alphabetical order: `First`, `Second`.
+17: The attribute groups must be in alphabetical order: `Deprecated`, `Override`.
+19: The attribute groups must be in alphabetical order: `Aa`, `Zz`.
+19: The attribute groups must be in alphabetical order: `Named`, `SensitiveParameter`.
+21: The attribute groups must be in alphabetical order: `One`, `Two`.
+22: The attribute groups must be in alphabetical order: `First`, `Second`.
+26: The attribute groups must be in alphabetical order: `Item1`, `Item9`, `Item10`.
+33: The attribute groups must be in alphabetical order: `Attribute`, `\Attribute\Sorted`.
+42: The attribute groups must be in alphabetical order: `A`, `B`.

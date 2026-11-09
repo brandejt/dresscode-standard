@@ -1,0 +1,198 @@
+# Brandejt rules: what the code does, whatever it looks like
+#
+# Hygiene, mistakes, control flow, expressions, native types everywhere, phpdoc that says something the code does
+# not, the constructs of the PHP the project allows and the deprecations it meets, and the rules of the plugin that
+# are no matter of layout. Nothing about the looks; that is `brandejt/style`.
+
+brandejt:
+    constructorPropertyPromotion: forbidden
+    implicitArrayCreation: forbidden
+    lateStaticBindingForConstants: forbidden
+    returningReference: forbidden
+    superGlobals: forbidden
+    unusedClosureUse: forbidden
+    unusedVariable: forbidden
+    uselessParentheses: forbidden
+    uselessVariable: forbidden
+    variableVariables: forbidden
+
+file:
+    strictTypes:
+        declaration: required
+
+classes:
+    modifiers:
+        implied: forbidden
+    overridingMethod:
+        signature: required
+        parameterName: required
+        parentCallOnly: forbidden
+        ReturnTypeWillChange: forbidden
+    untypedPropertyNullDefault: forbidden
+    protectedInFinalClass: forbidden
+
+imports:
+    unused: forbidden
+    fromCurrentNamespace: forbidden
+    aliasEqualToName: forbidden
+
+types:
+    declaration:
+        parameter: required
+        property: required
+        return: required
+        anonymousFunction: required
+        constant: required
+
+functions:
+    staticClosure: required
+    unreachableParameterDefault: forbidden
+    innerFunction: forbidden
+    trailingBareReturn: forbidden
+
+hygiene:
+    classNameNotation:
+        currentClass: required
+        object: required
+    aliasFunctions: [core, imap, pg]
+    call_user_func: forbidden
+    conversionFunction: forbidden
+    is_null: forbidden
+    strlenEmptyTest: forbidden
+    settype: forbidden
+    dirnameOfFile: forbidden
+    nestedDirname: forbidden
+    separateIssets: forbidden
+    separateUnsets: forbidden
+    repeatedCatchBody: forbidden
+    unreadCatchVariable: forbidden
+    __invokeCall: forbidden
+
+controlFlow:
+    ifReturningTrueFalse: forbidden
+    ifElseReturning: forbidden
+    elseAfterReturn: forbidden
+    elseifAfterReturn: forbidden
+
+expressions:
+    comparison:
+        loose: forbidden
+    assignment:
+        targetInValue: forbidden
+        addingOne: forbidden
+    ternary:
+        short: required
+        ofTrueFalse: forbidden
+    coalesce: required
+    parenthesesAfterConstruct: forbidden
+    wordLogicalOperator: forbidden
+    doubleNegation: forbidden
+
+literals:
+    classNameInString: forbidden
+    arraySyntax:
+        list: short
+    implicitBackslash: forbidden
+    concatenatedLiterals: forbidden
+    emptyStringConcatenation: forbidden
+
+comments:
+    empty: forbidden
+
+phpdoc:
+    annotation:
+        casing: canonical
+        plainComment: forbidden
+        nativeTypeOnly: forbidden
+        itemTypes: required
+        constantVar: forbidden
+        extraParam: forbidden
+        duplicateParam: forbidden
+        duplicateReturn: forbidden
+        duplicateVar: forbidden
+        empty: forbidden
+    forbiddenAnnotations: [@access, @author, @copyright, @created, @license, @package, @since, @subpackage, @version]
+    inheritdocOnly: forbidden
+    empty: forbidden
+    property:
+        plainComment: forbidden
+    types:
+        array: 'array<T>'
+        builtin: canonical
+        duplicate: forbidden
+
+mistakes:
+    consecutivePhpdocs: forbidden
+    continueInSwitch: forbidden
+    unreachableCatch: forbidden
+    exceptionWhereThrowableBelongs: forbidden
+    repeatedAssignment: forbidden
+    thisOutsideObject: forbidden
+    globalStatement: forbidden
+    debugOutput: forbidden
+    debugOutputFunctions:
+        - print_r
+        - var_dump
+        - var_export
+        - dump
+        - bdump
+        - dumpe
+        - dd
+        - debug_zval_dump
+        - debug_print_backtrace
+    trailingWhitespaceInString: forbidden
+    invisibleCharacter: forbidden
+    finalParent: forbidden
+    unimplementedAbstractMethod: forbidden
+    __debugInfoReturningNull: forbidden
+    __serialize: required
+    staticSetState: required
+    neverReturnType:
+        function: required
+        method: required
+        anonymousFunction: required
+
+upgrading:
+    packages: true
+    declarations:
+        deprecatedClass: forbidden
+        deprecatedMember: forbidden
+        deprecatedFunction: forbidden
+    syntax:
+        nullsafe: required
+        readonlyClasses: required
+        firstClassCallables: required
+        octalPrefix: required
+        throwExpression: required
+        match: required
+        spreadForArrayMerge: required
+        newInInitializer: required
+        dynamicClassConstant: required
+        cloneWith: required
+    functions:
+        substringFunctions: required
+        array_is_list: required
+        arraySearchFunctions: required
+        arrayFirstLast: required
+        get_debug_type: required
+        json_validate: required
+        roundingMode: required
+    classes:
+        Stringable: required
+        SensitiveParameter: required
+        SensitiveParameterNames: [password, passphrase, secret, apiKey, privateKey, currentPassword, newPassword]
+    phpdoc:
+        deprecated: required
+        readonly: required
+    php:
+        implicitNullable: forbidden
+        dollarBraceInterpolation: forbidden
+        deprecatedApi: forbidden
+        deprecatedArgument: forbidden
+        backticks: forbidden
+        nullArrayKey: forbidden
+        sleepAndWakeup: forbidden
+        constructorReturnValue: forbidden
+        returnInFinally: forbidden
+        reservedNames: forbidden
+        csvEscapeArgument: required

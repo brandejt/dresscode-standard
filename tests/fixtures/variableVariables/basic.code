@@ -1,0 +1,15 @@
+<?php
+
+$a = 'b';
+$$a = 1;
+${$a . 'c'} = 2;
+$$$a = 3;
+echo ${'d'}, ${ /* spaced */ $a };
+echo "{$$a} and ${a} and {${'e'}}";
+Foo::$$a = 4;
+Foo::${$a . 'x'} = 5;
+echo Foo::$a, $object->$a, $object->{$a . 'y'};
+$closure = static function () use (&$a) {
+    return static fn () => $$a + Foo::$$a;
+};
+global $$a;

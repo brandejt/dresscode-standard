@@ -1,0 +1,41 @@
+<?php
+
+// the whole condition of a ternary
+$a = $b ? 1 : 2;
+$a = $b + 1 ? 1 : 2;
+$a = $b instanceof Foo ? 1 : 2;
+$a = $b === 1 ? 1 : 2;
+$a = !$b ?: 2;
+$a = $b ?? $c ?: 2;
+
+// a variable, a constant, a fetch or a call chain, negated or not
+foo($a);
+foo($a->b, $a?->b(), $a::$b, A::B, A::class, A::b(), FOO, \Foo\BAR, $a['x']['y'], $$a);
+$a = foo()->bar()::baz();
+$a = !$b;
+$a = $b->c;
+$a = $b . 'x';
+$a = $b ? $c : $d;
+if ($a) {
+}
+
+// a string
+$a = 'x' . 'y';
+
+// an arithmetic operation
+$a = $b + $c * $d - 1;
+foo($a + 1, $b . 'x');
+$a = $b + 1 + 2;
+$a = $b * 2 / 3;
+$a = 2 ** $b ** 3;
+$a = $b . 'x' . 'y';
+$a = $b == $c + 1;
+$a = $b ?? $c - 1;
+$a = -$b;
+$a = $b + $c >> 1;
+$a = $b + $c[$d + 1] & 1;
+
+// an instantiation
+$a = new Foo();
+foo(new Foo(), 1);
+$a = [new Foo];

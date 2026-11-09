@@ -1,0 +1,6 @@
+3: The attributes `Attribute`, `Foo` and `Bar` must each have a group of their own.
+7: The attributes `A` and `B` must each have a group of their own.
+9: The attributes `First` and `Second` must each have a group of their own.
+16: The attributes `Param1` and `Param2` must each have a group of their own.
+18: The attributes `Closure1` and `Closure2` must each have a group of their own.
+26: The attributes `Case1` and `Case2` must each have a group of their own.

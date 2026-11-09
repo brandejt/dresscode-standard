@@ -1,0 +1,16 @@
+9: The current class `Foo` must be referenced as `self`.
+11: The current class `Foo` must be referenced as `self`.
+13: The current class `Foo` must be referenced as `self`.
+13: The current class `Foo` must be referenced as `self`.
+17: The current class `Foo` must be referenced as `self`.
+24: The current class `Foo` must be referenced as `self`.
+24: The current class `Foo` must be referenced as `self`.
+40: The current class `Baz` must be referenced as `self`.
+50: The current class `Node` must be referenced as `self`.
+52: The current class `Node` must be referenced as `self`.
+60: The current class `Status` must be referenced as `self`.
+60: The current class `Status` must be referenced as `self`.
+62: The current class `Status` must be referenced as `self`.
+64: The current class `Status` must be referenced as `self`.
+64: The current class `Status` must be referenced as `self`.
+69: The current class `Status` must be referenced as `self`.

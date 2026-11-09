@@ -1,0 +1,14 @@
+5: The variable `$plain` is assigned but never read.
+6: The variable `$chained` is assigned but never read.
+8: The variable `$first` is assigned but never read.
+10: The variable `$keyed` is assigned but never read.
+12: The variable `$key` is assigned but never read.
+16: The variable `$left` is assigned but never read.
+20: The variable `$twice` is assigned but never read.
+22: The variable `$inCondition` is assigned but never read.
+26: The variable `$arrowWrite` is assigned but never read.
+29: The variable `$counter` is assigned but never read.
+32: The variable `$text` is assigned but never read.
+34: The variable `$cached` is assigned but never read.
+109: The variable `$inner` is assigned but never read.
+111: The variable `$shadowed` is assigned but never read.

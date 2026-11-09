@@ -1,0 +1,28 @@
+<?php
+
+try {
+    foo();
+} catch (InvalidArgumentException | RuntimeException $e) {
+} catch (\Throwable|\Exception /* inner */ | LogicException) {
+} catch (a | B | C $e) {
+} catch (\App\Bar | App\Exception\Foo | Zend\Exception $e) {
+} catch (Single $e) {
+} catch (Already | Sorted $e) {
+} catch (
+    Second
+    | First // first
+    | Third
+    $e
+) {
+}
+
+$closure = static function (): void {
+    try {
+        bar();
+    } catch (X | Y $e) {
+        try {
+            baz();
+        } catch (A | b $e) {
+        }
+    }
+};

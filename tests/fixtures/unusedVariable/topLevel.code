@@ -1,0 +1,23 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App;
+
+$configuration = ['debug' => true]; // the file including this one may read it
+$unused = load();
+$handler = static function () use ($configuration): void {
+    $message = "Debug: {$configuration['debug']}";
+};
+$handler();
+
+for ($i = 0; $i < 3; $i++) {
+    $last = $i;
+}
+
+function readsGlobal(): bool
+{
+    global $configuration;
+
+    return $configuration['debug'];
+}

@@ -1,0 +1,7 @@
+5: The caught types must be in alphabetical order: `InvalidArgumentException | RuntimeException`.
+6: The caught types must be in alphabetical order: `\Exception | LogicException | \Throwable`.
+7: The caught types must be in alphabetical order: `a | B | C`.
+8: The caught types must be in alphabetical order: `\App\Bar | App\Exception\Foo | Zend\Exception`.
+11: The caught types must be in alphabetical order: `First | Second | Third`.
+22: The caught types must be in alphabetical order: `X | Y`.
+25: The caught types must be in alphabetical order: `A | b`.

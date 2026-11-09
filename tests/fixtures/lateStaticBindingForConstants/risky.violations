@@ -1,0 +1,4 @@
+10: `static::A` must be written `self::A`.
+	risky BehaviorChanges: a subclass may redeclare `A`, which `static::` reads and `self::` does not
+18: `static::A` must be written `self::A`.
+	risky BehaviorChanges: a subclass may redeclare `A`, which `static::` reads and `self::` does not

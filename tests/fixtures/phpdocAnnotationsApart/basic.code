@@ -1,0 +1,145 @@
+<?php
+
+/**
+ * Glued description.
+ * @param int $a
+ * @return int
+ */
+function glued(int $a): int
+{
+}
+
+/**
+ * Two blank lines below the description,
+ * which spans two lines.
+ *
+ *
+ * @param int $a
+ */
+function tooFar(int $a): void
+{
+}
+
+/**
+ * Blank lines between the annotations.
+ *
+ * @param int $a the first
+ *   continued on the next line
+ *
+ * @param int $b
+ *
+ *
+ * @return int
+ */
+function apart(int $a, int $b): int
+{
+}
+
+/**
+ * Both at once.
+ * @param int $a
+ *
+ * @return int
+ */
+function both(int $a): int
+{
+}
+
+/**
+ * Correct already.
+ *
+ * Second paragraph of the description.
+ *
+ * @param int $a the first
+ *
+ *   second paragraph of the parameter
+ * @return int
+ */
+function correct(int $a): int
+{
+}
+
+/**
+ * Only a description.
+ *
+ * In two paragraphs.
+ */
+function described(): void
+{
+}
+
+/**
+ * @param int $a
+ * @return int
+ */
+function annotated(int $a): int
+{
+}
+
+/**
+ *
+ * Blank lines at the edges stay.
+ * @return int
+ *
+ */
+function edges(): int
+{
+}
+
+/** Description on the opening line.
+ * @return int */
+function opening(): int
+{
+}
+
+/** @var int $count */
+$count = 1;
+
+/**
+ * {@inheritDoc}
+ * @return string
+ */
+$text = 'text /** not a doc comment @param */';
+
+class Entity
+{
+    /**
+     * The identifier.
+     * @var int
+     */
+    private int $id;
+
+    /**
+     * @ORM\Column(
+     *     type="string",
+     *     nullable=true
+     * )
+     *
+     * @var string
+     */
+    private string $name;
+
+    public function run(): void
+    {
+        $filter = array_filter(
+            [],
+            /**
+             * Keeps the active items.
+             * @param array<string, mixed> $item
+             */
+            static fn (array $item): bool => $item['active']
+        );
+        /** One-line description. @var int */
+        $limit = 10;
+    }
+}
+
+final class SharedLine
+{
+    /**
+     * @ORM\Id @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     * @var int
+     */
+    private int $id;
+}

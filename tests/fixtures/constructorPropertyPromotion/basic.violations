@@ -1,0 +1,6 @@
+6: The property `$a` must be declared in the class, not promoted in the constructor.
+7: The property `$b` must be declared in the class, not promoted in the constructor.
+9: The property `$c` must be declared in the class, not promoted in the constructor.
+11: The property `$e` must be declared in the class, not promoted in the constructor.
+19: The property `$f` must be declared in the class, not promoted in the constructor.
+26: The property `$g` must be declared in the class, not promoted in the constructor.

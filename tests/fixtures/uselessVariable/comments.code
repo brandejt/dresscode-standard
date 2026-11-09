@@ -1,0 +1,54 @@
+<?php
+
+function commentAbove(): int
+{
+    // the answer
+    $result = 42;
+
+    return $result;
+}
+
+function commentAfterReturn(): int
+{
+    $result = 42;
+
+    return $result; // the answer
+}
+
+function commentAfterAssignment(): int
+{
+    $result = 42; // the answer
+
+    return $result;
+}
+
+function commentBetween(): int
+{
+    $result = 42;
+    // the answer
+    return $result;
+}
+
+function commentInside(): int
+{
+    $result = compute(/* nothing */);
+
+    return $result;
+}
+
+function commentAfterEquals(): int
+{
+    $result = /* the answer */ 42;
+
+    return $result;
+}
+
+function commentAboveAmongStatements(int $a): int
+{
+    $a++;
+
+    // the answer
+    $result = $a * 42;
+
+    return $result;
+}

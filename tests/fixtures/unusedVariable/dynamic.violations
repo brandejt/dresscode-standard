@@ -1,0 +1,3 @@
+58: The variable `$reported` is assigned but never read.
+65: The variable `$reported` is assigned but never read.
+75: The variable `$reported` is assigned but never read.

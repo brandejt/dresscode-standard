@@ -1,0 +1,11 @@
+3: The superglobal `$_GET` is forbidden.
+4: The superglobal `$_POST` is forbidden.
+4: The superglobal `$_REQUEST` is forbidden.
+4: The superglobal `$_COOKIE` is forbidden.
+5: The superglobal `$_SERVER` is forbidden.
+5: The superglobal `$_FILES` is forbidden.
+5: The superglobal `$_ENV` is forbidden.
+6: The superglobal `$GLOBALS` is forbidden.
+6: The superglobal `$_SESSION` is forbidden.
+8: The superglobal `$_GET` is forbidden.
+10: The superglobal `$_SERVER` is forbidden.

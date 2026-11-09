@@ -1,0 +1,8 @@
+3: The `@throws` annotations must be in alphabetical order: `\InvalidArgumentException`, `NotFoundException`.
+15: The `@throws` annotations must be in alphabetical order: `ArithmeticError`, `ZeroException`.
+25: The `@throws` annotations must be in alphabetical order: `B`, `C`.
+34: The `@throws` annotations must be in alphabetical order: `A`, `B`.
+42: The `@throws` annotations must be in alphabetical order: `\LogicException`, `\RuntimeException`.
+60: The `@throws` annotations must be in alphabetical order: `aException`, `ZException`.
+71: The `@throws` annotations must be in alphabetical order: `First`, `Second`.
+80: The `@throws` annotations must be in alphabetical order: `Normal`, `Ŝtrange`.

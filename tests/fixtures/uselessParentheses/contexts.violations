@@ -1,0 +1,20 @@
+8: The parentheses around `$b->c() ->d()` are useless and must be removed.
+14: The parentheses around `$b` are useless and must be removed.
+16: The parentheses around `$b` are useless and must be removed.
+18: The parentheses around `$b` are useless and must be removed.
+19: The parentheses around `$b + 1` are useless and must be removed.
+20: The parentheses around `$b` are useless and must be removed.
+21: The parentheses around `$c` are useless and must be removed.
+22: The parentheses around `$c` are useless and must be removed.
+24: The parentheses around `$c` are useless and must be removed.
+26: The parentheses around `$x` are useless and must be removed.
+27: The parentheses around `FOO` are useless and must be removed.
+28: The parentheses around `$b` are useless and must be removed.
+28: The parentheses around `$v * 2` are useless and must be removed.
+31: The parentheses around `$b` are useless and must be removed.
+32: The parentheses around `$c` are useless and must be removed.
+35: The parentheses around `$c` are useless and must be removed.
+35: The parentheses around `$d` are useless and must be removed.
+36: The parentheses around `new Foo()` are useless and must be removed.
+38: The parentheses around `$a` are useless and must be removed.
+40: The parentheses around `$e` are useless and must be removed.

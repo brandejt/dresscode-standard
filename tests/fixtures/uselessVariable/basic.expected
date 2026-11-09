@@ -1,0 +1,142 @@
+<?php
+
+function plain(): int
+{
+    return compute();
+}
+
+function afterStatement(int $a): int
+{
+    $a++;
+    return compute($a);
+}
+
+function amongBlankLines(int $a): int
+{
+    $a++;
+
+    return compute($a);
+}
+
+function multiline(): array
+{
+    return [
+        'a' => 1,
+        'b' => 2,
+    ];
+}
+
+function valueOnNextLine(): int
+{
+    return compute();
+}
+
+function lowPrecedence(bool $a, bool $b): bool
+{
+    $result = $a and $b;
+
+    return $result;
+}
+
+function ternary(bool $flag): string
+{
+    return $flag ? 'yes' : 'no';
+}
+
+function chained(): int
+{
+    return compute();
+}
+
+function inBranch(bool $flag): int
+{
+    if ($flag) {
+        return 1;
+    }
+
+    return 0;
+}
+
+function inClosure(): Closure
+{
+    return static function () {
+        return compute();
+    };
+}
+
+function readAgain(): int
+{
+    $result = 1;
+    $result = $result + 1;
+
+    return $result;
+}
+
+function readByArrow(): Closure
+{
+    $reader = static fn () => $result;
+    $result = compute();
+
+    return $result;
+}
+
+function combined(): string
+{
+    $result = 'a';
+    $result .= 'b';
+
+    return $result;
+}
+
+function parameter(int $value): int
+{
+    $value = compute();
+
+    return $value;
+}
+
+function staticVariable(): int
+{
+    static $count;
+    $count = compute();
+
+    return $count;
+}
+
+function &byReference(): array
+{
+    $result = [];
+
+    return $result;
+}
+
+function annotated(Container $container): Foo
+{
+    /** @var Foo $result */
+    $result = $container->get('foo');
+
+    return $result;
+}
+
+function dynamic(array $values): int
+{
+    extract($values);
+    $result = compute();
+
+    return $result;
+}
+
+function unbraced(bool $flag): int
+{
+    if ($flag)
+        $result = 1;
+    return $result;
+}
+
+function oneLine(): int { return compute(); }
+
+function blankLineAtStart(): int
+{
+
+    return compute();
+}

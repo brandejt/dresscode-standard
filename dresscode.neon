@@ -1,0 +1,19 @@
+# The package checked with its own standard.
+
+use:
+    - brandejt/dresscode-standard
+    - brandejt/style
+    - brandejt/rules
+
+paths:
+    - src
+    - tests
+
+excludePaths:
+    - tests/fixtures
+
+fileExtensions: [php, phpt]
+
+nameResolution: certain
+
+typeAnalysis: phpstan

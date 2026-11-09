@@ -1,0 +1,12 @@
+<?php
+
+foreach (load() as $row) {
+    $rows[] = $row; // the file including this one may have created it
+}
+
+$handler = static function (array $rows) {
+    $rows[] = 1;
+    $added['key'] = $rows;
+
+    return $added;
+};

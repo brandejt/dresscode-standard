@@ -1,0 +1,17 @@
+<?php declare(strict_types = 1);
+
+namespace App;
+
+declare(ticks = 1);
+
+declare(ticks = 1);
+
+declare(ticks = 1);
+
+declare(ticks = 1) {
+    $a = 1;
+}
+
+declare(ticks = 1):
+    $b = 2;
+enddeclare;
