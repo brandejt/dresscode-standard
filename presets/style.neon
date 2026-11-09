@@ -1,9 +1,9 @@
 # Brandejt style: PER Coding Style with a stricter layout
 #
 # How the code looks: PER Coding Style with the braces of a multiline signature on a line of their own, empty bodies
-# expanded, `declare(strict_types = 1)`, no padding and no alignment, imports grouped and sorted, one order of the
-# members of a class, and the layout the rules of the plugin decide. Nothing about what the code does; that is
-# `brandejt/rules`.
+# expanded, `declare(strict_types = 1)`, no padding and no alignment, the links of a chain sharing lines unless one
+# spans lines, imports grouped and sorted, one order of the members of a class, and the layout the rules of the
+# plugin decide. Nothing about what the code does; that is `brandejt/rules`.
 
 use: perCs
 
@@ -69,8 +69,7 @@ indentation:
 
 multiline:
     items:
-        # a chain stays as it is written, spread or on one line
-        chain: keep
+        chain: fill
         matchArm: perLine
         coalesce: perLine
         closureUse: perLine

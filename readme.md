@@ -51,9 +51,10 @@ Presets
 
 **`brandejt/style`** builds on `perCs` and decides how the code looks: the braces of a multiline signature on a line
 of their own, empty bodies expanded, `declare(strict_types = 1)` on the line of the opening tag, no padding inside
-brackets and no alignment, a concatenation operator opening the line, imports grouped by kind and sorted by name,
-global classes imported and global functions written bare, one order of the members of a class, `T|null` in a doc
-comment, single quotes, and the layout the rules of the plugin decide.
+brackets and no alignment, a concatenation operator opening the line, the links of a chain sharing lines unless one
+spans lines, imports grouped by kind and sorted by name, global classes imported and global functions written bare,
+one order of the members of a class, `T|null` in a doc comment, single quotes, and the layout the rules of the plugin
+decide.
 
 **`brandejt/rules`** decides what the code does: hygiene (`count()`, not `sizeof()`; `$f($x)`, not
 `call_user_func()`), the mistakes DressCode knows, control flow without `else` after `return`, strict comparison,
