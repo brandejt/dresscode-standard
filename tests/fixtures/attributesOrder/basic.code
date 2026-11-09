@@ -35,6 +35,13 @@ final class Example
     public function qualified(): void
     {
     }
+
+    #[\Zeta]
+    #[alpha]
+    #[Beta]
+    public function caseAndBackslash(): void
+    {
+    }
 }
 
 enum Suit

@@ -26,3 +26,8 @@ $closure = static function (): void {
         }
     }
 };
+
+try {
+    qux();
+} catch (Error9 | Error10 $e) {
+}

@@ -24,9 +24,11 @@ final class AttributesOrderRule extends NodeRule
             new Decision(
                 'brandejt.attributesOrder',
                 new Words([
-                    'alphabetical' => 'the groups in the natural order of the name of the first attribute of each',
+                    'alphabetical' => 'the groups in the natural order of the name of the first attribute of each, '
+                        . 'regardless of letter case and a leading backslash',
                 ]),
-                'The order of the attribute groups of a declaration, by the name of their first attributes as written'
+                'The order of the attribute groups of a declaration, by the name of their first attributes in natural '
+                . 'order regardless of letter case'
             ),
         ];
     }
@@ -66,7 +68,10 @@ final class AttributesOrderRule extends NodeRule
         $sorted = $groups;
         usort(
             $sorted,
-            static fn (AttributeGroupNode $a, AttributeGroupNode $b) => strnatcmp(self::getName($a), self::getName($b))
+            static fn (AttributeGroupNode $a, AttributeGroupNode $b) => strnatcasecmp(
+                ltrim(self::getName($a), '\\'),
+                ltrim(self::getName($b), '\\')
+            )
         );
 
         if ($sorted === $groups) {

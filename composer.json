@@ -15,12 +15,15 @@
     },
     "require": {
         "php": "^8.4",
-        "dresscode/dresscode": "^1.3"
+        "dresscode/dresscode": "^1.3.2"
     },
     "require-dev": {
         "nette/tester": "^2.7",
         "php-parallel-lint/php-parallel-lint": "^1.4",
         "phpstan/phpstan": "^2.3"
+    },
+    "suggest": {
+        "phpstan/phpstan": "Gives the decisions that need the types of the code what they need, with typeAnalysis: phpstan"
     },
     "autoload": {
         "psr-4": {"Brandejt\\DressCodeStandard\\": "src/"}

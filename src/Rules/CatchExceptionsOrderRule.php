@@ -23,8 +23,11 @@ final class CatchExceptionsOrderRule extends NodeRule
         return [
             new Decision(
                 'brandejt.catchExceptionsOrder',
-                new Words(['alphabetical' => 'the types sorted by their written names regardless of letter case']),
-                'The order of the types of a multi-catch `catch (A | B $e)`, alphabetical regardless of letter case'
+                new Words([
+                    'alphabetical' => 'the types in the natural order of their written names, regardless of letter '
+                        . 'case and a leading backslash',
+                ]),
+                'The order of the types of a multi-catch `catch (A | B $e)`, in natural order regardless of letter case'
             ),
         ];
     }
@@ -44,7 +47,7 @@ final class CatchExceptionsOrderRule extends NodeRule
         $types = $node->types->getItems();
         $names = array_map(static fn (NameNode $type) => $type->text, $types);
         $sorted = $names;
-        usort($sorted, static fn (string $a, string $b) => strcasecmp(ltrim($a, '\\'), ltrim($b, '\\')));
+        usort($sorted, static fn (string $a, string $b) => strnatcasecmp(ltrim($a, '\\'), ltrim($b, '\\')));
 
         if ($sorted === $names) {
             return;

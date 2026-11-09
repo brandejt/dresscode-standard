@@ -12,7 +12,7 @@ Installation
 composer require --dev brandejt/dresscode-standard
 ```
 
-It needs PHP 8.4 or newer and DressCode 1.3 or newer. The code it checks may be written for any PHP from 8.0 on:
+It needs PHP 8.4 or newer and DressCode 1.3.2 or newer. The code it checks may be written for any PHP from 8.0 on:
 DressCode writes only the syntax the `composer.json` of the project allows.
 
 Configuration
@@ -30,8 +30,12 @@ paths:
     - src
     - tests
 
-typeAnalysis: phpstan   # the decisions that need the types of the code run with the PHPStan of the project
+nameResolution: certain   # the project declares no function or constant that shadows a global one
+typeAnalysis: phpstan     # the decisions that need the types of the code run with the PHPStan of the project
 ```
+
+`nameResolution: certain` turns the fixes that rest on knowing a name is global, `strpos()` to `str_contains()` and the
+like, from risky warnings into plain fixes; leave it out where a namespace of the project declares such a function.
 
 The project has the last word on every key, in its file or under `overrides` for a part of the code:
 
@@ -44,7 +48,9 @@ overrides:
             superGlobals: keep
 ```
 
-One line is silenced with a comment, `// dresscode:ignore brandejt.superGlobals -- <why>`.
+One line is silenced with a comment, `// dresscode:ignore brandejt.superGlobals -- <why>`. The `@` operator, which
+`brandejt/rules` forbids, is kept where it is meant with the reason on its line or the line above,
+`@unlink($file); // @ <why>`.
 
 Presets
 -------
@@ -70,9 +76,9 @@ Every rule decides under the section `brandejt`. The rules that say "reported" c
 | Decision | What it decides | Fix |
 |---|---|---|
 | `attributesJoining` | Several attributes in one group `#[A, B]` | reported |
-| `attributesOrder` | The order of the attribute groups of a declaration, by the name of their first attributes as written | sorted |
+| `attributesOrder` | The order of the attribute groups of a declaration, by the name of their first attributes in natural order regardless of letter case | sorted |
 | `blankLinesAroundParentCall` | Blank lines before a statement calling a parent method or constructor that is not the first of its block, and after one that is not the last | fixed |
-| `catchExceptionsOrder` | The order of the types of a multi-catch `catch (A \| B $e)`, alphabetical regardless of letter case | sorted |
+| `catchExceptionsOrder` | The order of the types of a multi-catch `catch (A \| B $e)`, in natural order regardless of letter case | sorted |
 | `constructorPropertyPromotion` | A constructor parameter promoted to a property | reported |
 | `declareSpacing` | The whitespace inside a `declare` statement, `declare(strict_types = 1)` | fixed |
 | `implicitArrayCreation` | An element assigned to a variable nothing created before, `$a[] = 1` without `$a = []` | reported |

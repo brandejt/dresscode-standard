@@ -176,7 +176,7 @@ final class InlineVarDeclarationRule extends NodeRule
                     '${1}' . $type . '${2}' . $variable,
                     $text,
                     1
-                );
+                ) ?? $text;
             }
         }
 

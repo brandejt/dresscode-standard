@@ -54,11 +54,12 @@ hygiene:
     classNameNotation:
         currentClass: required
         object: required
-    aliasFunctions: [core, imap, pg]
+    aliasFunctions: [all]
     call_user_func: forbidden
     conversionFunction: forbidden
     is_null: forbidden
     strlenEmptyTest: forbidden
+    countEmptyTest: forbidden
     settype: forbidden
     dirnameOfFile: forbidden
     nestedDirname: forbidden
@@ -67,6 +68,7 @@ hygiene:
     repeatedCatchBody: forbidden
     unreadCatchVariable: forbidden
     __invokeCall: forbidden
+    uselessVersionCheck: forbidden
 
 controlFlow:
     ifReturningTrueFalse: forbidden
@@ -126,6 +128,9 @@ mistakes:
     continueInSwitch: forbidden
     unreachableCatch: forbidden
     exceptionWhereThrowableBelongs: forbidden
+    errorSuppression: forbidden
+    looseNumberComparison: forbidden
+    countOfUncountable: forbidden
     repeatedAssignment: forbidden
     thisOutsideObject: forbidden
     globalStatement: forbidden
@@ -174,6 +179,7 @@ upgrading:
         array_is_list: required
         arraySearchFunctions: required
         arrayFirstLast: required
+        clamp: required
         get_debug_type: required
         json_validate: required
         roundingMode: required
@@ -191,8 +197,15 @@ upgrading:
         deprecatedArgument: forbidden
         backticks: forbidden
         nullArrayKey: forbidden
+        nullArgument: forbidden
+        floatArrayKey: forbidden
+        dynamicProperty: forbidden
         sleepAndWakeup: forbidden
         constructorReturnValue: forbidden
         returnInFinally: forbidden
         reservedNames: forbidden
         csvEscapeArgument: required
+
+suppressionComments:
+    # an `@` kept on purpose says why on its line, `// @ <why>`
+    '~^//\s*@\s+\S~': {decisions: mistakes.errorSuppression, example: '// @ <why>'}

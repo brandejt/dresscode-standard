@@ -7,4 +7,5 @@
 22: The attribute groups must be in alphabetical order: `First`, `Second`.
 26: The attribute groups must be in alphabetical order: `Item1`, `Item9`, `Item10`.
 33: The attribute groups must be in alphabetical order: `Attribute`, `\Attribute\Sorted`.
-42: The attribute groups must be in alphabetical order: `A`, `B`.
+39: The attribute groups must be in alphabetical order: `alpha`, `Beta`, `\Zeta`.
+49: The attribute groups must be in alphabetical order: `A`, `B`.

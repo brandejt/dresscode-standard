@@ -5,3 +5,4 @@
 11: The caught types must be in alphabetical order: `First | Second | Third`.
 22: The caught types must be in alphabetical order: `X | Y`.
 25: The caught types must be in alphabetical order: `A | b`.
+32: The caught types must be in alphabetical order: `Error9 | Error10`.

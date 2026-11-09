@@ -4,14 +4,21 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   tests:
-    name: PHP ${{ matrix.php }}
+    name: PHP ${{ matrix.php }}${{ matrix.dependencies == 'lowest' && ', lowest dependencies' || '' }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         php: ['8.4', '8.5']
+        dependencies: [highest]
+        include:
+          - php: '8.4'
+            dependencies: lowest
 
     steps:
       - uses: actions/checkout@v4
@@ -20,7 +27,7 @@ jobs:
           php-version: ${{ matrix.php }}
           coverage: none
 
-      - run: composer install --no-interaction --no-progress
+      - run: composer update --no-interaction --no-progress ${{ matrix.dependencies == 'lowest' && '--prefer-lowest --prefer-stable' || '' }}
       - run: vendor/bin/parallel-lint src tests
       - run: vendor/bin/dresscode check
       - run: vendor/bin/phpstan analyse
